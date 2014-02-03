@@ -11,3 +11,12 @@ also added an additional target to the makefile to rebuild the accompanying
 report.  Since I can't be certain this will indeed be run in an environment with
 latex during the grading, I've included a copy of the resultant pdf; the make
 rule is left as a novelty.
+
+IMPORTANT NOTE
+==============
+Also, due to the confusion over turn in and where the binaries need to build to
+to survive automatic grading, I've included a perfectly superflous script
+aliasing src/dwt3d to run.sh and passing all arguments straight thru.  PLEASE DO
+NOT USE IT UNLESS NECCASARY; I am not sure if the extra overhead will effect
+measurement or not, and I'd like to avoid it unless the automated grading
+requires it.
