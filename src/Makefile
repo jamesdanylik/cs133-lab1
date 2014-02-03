@@ -19,4 +19,4 @@ clean:
 	rm -rf *.o
 	rm -rf $(EXEDIR)/$(DWT2_EXEC)
 	rm -rf $(EXEDIR)/$(DWT3_EXEC)
-	rm -rf ../*.dat ../*.out ../*.bmp ../*.output
+	rm -rf ../*.dat ../*.out ../*.bmp ../*.output ../*.pdf ../*.log ../*.aux

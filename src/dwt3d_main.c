@@ -48,21 +48,21 @@ int main(int argc, char *argv[]) {
     gettimeofday(&t1, NULL);
 
 	// 3D DWT transform, which is 2D DWT for each image slices
-	#pragma omp parallel for schedule(dynamic,2)
+	#pragma omp parallel for schedule(dynamic,1)
 	for (i=0; i<p; i++)
 		cdf97(img+i*n*m, tmp+i*n*m, m, n, level);
 
     gettimeofday(&t2, NULL);
     timersub(&t1, &t2, &tr);
     printf("Execute time: %.2f sec\n", fabs(tr.tv_sec+(double)tr.tv_usec/1000000.0));
-
+	
 	FILE* fout = fopen(fname_out, "wb+");
 	fwrite(&m,	 sizeof(int), 1, fout);
 	fwrite(&n, 	 sizeof(int), 1, fout);
 	fwrite(&p, 	 sizeof(int), 1, fout);
 	fwrite(img,  sizeof(float), n*m*p, fout);
 	fclose(fout);
-
+	
 	free(img);
 	free(tmp);
 
