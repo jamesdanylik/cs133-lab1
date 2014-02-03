@@ -5,7 +5,7 @@ EXEDIR	= ../bin
 DWT2_EXEC = dwt2d
 DWT3_EXEC = dwt3d
 
-LINK = -O3 -lm -pg #-fopenmp
+LINK = -O3 -lm -fopenmp
 
 all: $(EXEDIR)/$(DWT2_EXEC) $(EXEDIR)/$(DWT3_EXEC) 
 
@@ -19,3 +19,4 @@ clean:
 	rm -rf *.o
 	rm -rf $(EXEDIR)/$(DWT2_EXEC)
 	rm -rf $(EXEDIR)/$(DWT3_EXEC)
+	rm -rf ../*.dat ../*.out ../*.bmp ../*.output

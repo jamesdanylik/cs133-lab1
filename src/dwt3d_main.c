@@ -3,6 +3,7 @@
 #include <math.h>
 #include <memory.h>
 #include <sys/time.h>
+#include <omp.h>
 
 #include "cdf97.h"
 #include "util.h"
@@ -42,9 +43,12 @@ int main(int argc, char *argv[]) {
 	fread (img, n*m*p, sizeof(float), fin);
 	fclose(fin);
 
+	omp_set_num_threads(16);
+
     gettimeofday(&t1, NULL);
 
 	// 3D DWT transform, which is 2D DWT for each image slices
+	#pragma omp parallel for schedule(dynamic,2)
 	for (i=0; i<p; i++)
 		cdf97(img+i*n*m, tmp+i*n*m, m, n, level);
 

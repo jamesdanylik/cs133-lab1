@@ -40,6 +40,7 @@ void fwt97_pd(
 {
 	int i, j;
 
+	#pragma omp parallel for private(j)
 	for (i=0; i<n; i++) {
 		// Predict 1
 		for (j=1; j<m-2; j+=2) {
